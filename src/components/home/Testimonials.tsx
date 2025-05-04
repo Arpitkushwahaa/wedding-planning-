@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import { useInView } from '../../hooks/useInView';
 import { ArrowLeft, ArrowRight, Quote } from 'lucide-react';
 
@@ -29,22 +29,8 @@ const testimonials = [
 const Testimonials = () => {
   const ref = useRef<HTMLDivElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { threshold: 0.1, once: true });
+  const isInView = useInView(ref, { threshold: 0.1, persistOnceVisible: true });
   const [currentSlide, setCurrentSlide] = useState(0);
-  
-  // Force visibility on scroll to prevent content from disappearing
-  useEffect(() => {
-    const handleScroll = () => {
-      // When user scrolls, make all content visible
-      document.querySelectorAll('.opacity-0').forEach(element => {
-        element.classList.remove('opacity-0');
-        element.classList.add('opacity-100');
-      });
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
   
   const scrollToSlide = (index: number) => {
     if (sliderRef.current) {

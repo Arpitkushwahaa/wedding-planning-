@@ -43,7 +43,7 @@ const timelineSteps = [
 
 const Timeline = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { threshold: 0.1, once: true });
+  const isInView = useInView(ref, { threshold: 0.1, persistOnceVisible: true });
   
   return (
     <section className="py-20 bg-white">
@@ -54,7 +54,7 @@ const Timeline = () => {
             The Journey to Your Perfect Day
           </h3>
           <p className={`max-w-2xl mx-auto text-gray-600 mt-4 transition-all duration-700 delay-200 ${isInView ? 'opacity-100' : 'opacity-0'}`}>
-            From the initial consultation to the big day, we\'re with you every step of the way. Here\'s how our planning process works.
+            From the initial consultation to the big day, we're with you every step of the way. Here's how our planning process works.
           </p>
         </div>
         

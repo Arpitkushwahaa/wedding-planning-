@@ -5,7 +5,7 @@ import { Calendar, Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
 const Contact = () => {
   const ref = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
-  const isInView = useInView(ref, { threshold: 0.1 });
+  const isInView = useInView(ref, { threshold: 0.1, persistOnceVisible: true });
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -55,7 +55,7 @@ const Contact = () => {
             Begin Your Wedding Journey
           </h3>
           <p className={`max-w-2xl mx-auto text-gray-600 mt-4 transition-all duration-700 delay-200 ${isInView ? 'opacity-100' : 'opacity-0'}`}>
-            Ready to plan your perfect Indian wedding? Contact us today for a free consultation and let's create a beautiful celebration that honors your traditions and personal style.
+            Ready to start planning your dream wedding? Contact us today for a free consultation and let's create unforgettable memories together.
           </p>
         </div>
         
@@ -69,8 +69,9 @@ const Contact = () => {
                   <Phone size={24} className="text-rose-400 mt-1" />
                   <div>
                     <h5 className="font-medium text-lg">Phone</h5>
-                    <p className="text-gray-600">+91 8045 678 900</p>
-                    <p className="text-gray-500 text-sm">Available Mon-Sat, 10am-7pm IST</p>
+                    <p className="text-gray-600">+1 (555) 123-4567 (US Office)</p>
+                    <p className="text-gray-600">+91 98765 43210 (India Office)</p>
+                    <p className="text-gray-500 text-sm">Available Mon-Fri, 9am-6pm local time</p>
                   </div>
                 </div>
                 
@@ -78,7 +79,8 @@ const Contact = () => {
                   <Mail size={24} className="text-rose-400 mt-1" />
                   <div>
                     <h5 className="font-medium text-lg">Email</h5>
-                    <p className="text-gray-600">hello@eternalweddings.in</p>
+                    <p className="text-gray-600">hello@weddingplanner.com</p>
+                    <p className="text-gray-600">india@weddingplanner.com</p>
                     <p className="text-gray-500 text-sm">We respond within 24 hours</p>
                   </div>
                 </div>
@@ -86,9 +88,13 @@ const Contact = () => {
                 <div className="flex items-start gap-4">
                   <MapPin size={24} className="text-rose-400 mt-1" />
                   <div>
-                    <h5 className="font-medium text-lg">Office</h5>
-                    <p className="text-gray-600">42 Rajmahal Avenue, Jubilee Hills</p>
-                    <p className="text-gray-600">Hyderabad, Telangana 500033, India</p>
+                    <h5 className="font-medium text-lg">Offices</h5>
+                    <p className="font-medium text-gray-700">New York, USA:</p>
+                    <p className="text-gray-600">123 Wedding Avenue, Suite 101</p>
+                    <p className="text-gray-600 mb-2">New York, NY 10001</p>
+                    <p className="font-medium text-gray-700">Delhi, India:</p>
+                    <p className="text-gray-600">42 Celebration Road, Connaught Place</p>
+                    <p className="text-gray-600">New Delhi, 110001</p>
                   </div>
                 </div>
                 
@@ -96,8 +102,8 @@ const Contact = () => {
                   <Clock size={24} className="text-rose-400 mt-1" />
                   <div>
                     <h5 className="font-medium text-lg">Hours</h5>
-                    <p className="text-gray-600">Monday - Saturday: 10am - 7pm</p>
-                    <p className="text-gray-600">Sunday: 11am - 3pm (by appointment)</p>
+                    <p className="text-gray-600">Monday - Friday: 9am - 6pm</p>
+                    <p className="text-gray-600">Saturday: 10am - 4pm (by appointment)</p>
                   </div>
                 </div>
                 
@@ -106,17 +112,9 @@ const Contact = () => {
                   <div>
                     <h5 className="font-medium text-lg">Consultations</h5>
                     <p className="text-gray-600">Available in-person or virtually</p>
-                    <p className="text-gray-500 text-sm">Home visits available in select areas</p>
+                    <p className="text-gray-500 text-sm">Book through our online form</p>
                   </div>
                 </div>
-              </div>
-              
-              <div className="mt-8 p-4 bg-rose-50 rounded-lg border border-rose-100">
-                <p className="text-sm text-gray-600 italic">
-                  We specialize in blending traditional Indian ceremonies with modern elements. 
-                  From intimate South Indian weddings to grand Punjabi celebrations, we create 
-                  personalized experiences that honor your cultural heritage.
-                </p>
               </div>
             </div>
           </div>
@@ -213,13 +211,10 @@ const Contact = () => {
                     <option value="Full Planning">Full Planning</option>
                     <option value="Partial Planning">Partial Planning</option>
                     <option value="Day-of Coordination">Day-of Coordination</option>
-                    <option value="Traditional Indian Wedding">Traditional Indian Wedding</option>
-                    <option value="Destination Wedding in India">Destination Wedding in India</option>
-                    <option value="Pre-Wedding Ceremonies">Pre-Wedding Ceremonies</option>
-                    <option value="Mehndi & Sangeet Planning">Mehndi & Sangeet Planning</option>
                     <option value="Vendor Management">Vendor Management</option>
                     <option value="Photography Package">Photography Package</option>
                     <option value="Entertainment">Entertainment</option>
+                    <option value="Indian Wedding Package">Indian Wedding Package</option>
                     <option value="Other">Other</option>
                   </select>
                 </div>
@@ -234,7 +229,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-rose-400 transition-colors"
-                    placeholder="Tell us about your dream wedding... Any specific traditions, venues, or themes you have in mind?"
+                    placeholder="Tell us about your wedding vision..."
                   ></textarea>
                 </div>
                 

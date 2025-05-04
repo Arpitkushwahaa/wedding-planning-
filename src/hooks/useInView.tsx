@@ -3,12 +3,12 @@ import { useState, useEffect, RefObject } from 'react';
 interface UseInViewOptions {
   threshold?: number;
   rootMargin?: string;
-  once?: boolean;
+  persistOnceVisible?: boolean;
 }
 
 export const useInView = (
   elementRef: RefObject<Element>,
-  options: UseInViewOptions = { threshold: 0, rootMargin: '0px', once: true }
+  options: UseInViewOptions = { threshold: 0, rootMargin: '0px', persistOnceVisible: true }
 ): boolean => {
   const [isInView, setIsInView] = useState<boolean>(false);
 
@@ -17,14 +17,12 @@ export const useInView = (
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-          
-          if (options.once) {
-            observer.disconnect();
+        if (options.persistOnceVisible) {
+          if (entry.isIntersecting) {
+            setIsInView(true);
           }
-        } else if (!options.once) {
-          setIsInView(false);
+        } else {
+          setIsInView(entry.isIntersecting);
         }
       },
       {
@@ -40,7 +38,7 @@ export const useInView = (
         observer.unobserve(elementRef.current);
       }
     };
-  }, [elementRef, options.threshold, options.rootMargin, options.once]);
+  }, [elementRef, options.threshold, options.rootMargin, options.persistOnceVisible]);
 
   return isInView;
 };

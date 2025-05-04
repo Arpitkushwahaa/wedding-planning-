@@ -50,7 +50,7 @@ const services = [
 
 const Services = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { threshold: 0.1 });
+  const isInView = useInView(ref, { threshold: 0.1, persistOnceVisible: true });
   
   return (
     <section id="services" className="py-20 bg-white">

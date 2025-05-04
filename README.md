@@ -48,6 +48,37 @@ npm run dev
 
 4. Open your browser and navigate to `http://localhost:5173`
 
+## Pushing to GitHub
+
+To create a GitHub repository for this project:
+
+1. Create a new repository on GitHub:
+   - Go to [GitHub](https://github.com) and log in
+   - Click the "+" icon in the top right, then "New repository"
+   - Name your repository (e.g., "wedding-planner-website")
+   - Do not initialize with README, license, or .gitignore
+   - Click "Create repository"
+
+2. Initialize Git in your local project (if not already done):
+```
+git init
+git add .
+git commit -m "Initial commit"
+```
+
+3. Link to your GitHub repository and push:
+```
+git remote add origin https://github.com/yourusername/wedding-planner-website.git
+git push -u origin master
+```
+
+4. If you encounter authentication issues, you might need to:
+   - Use GitHub CLI: `gh auth login`
+   - Or create a personal access token on GitHub and use it in the URL:
+     ```
+     git remote set-url origin https://YOUR_TOKEN@github.com/yourusername/wedding-planner-website.git
+     ```
+
 ## Build for Production
 
 ```

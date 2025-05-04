@@ -81,21 +81,20 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin size={20} className="text-rose-400 mt-1 flex-shrink-0" />
                 <span className="text-gray-400">
-                  42 Rajmahal Avenue, Jubilee Hills<br />
-                  Hyderabad, Telangana 500033<br />
-                  India
+                  123 Wedding Avenue, Suite 101<br />
+                  New York, NY 10001
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={20} className="text-rose-400 flex-shrink-0" />
-                <a href="tel:+918045678900" className="text-gray-400 hover:text-rose-400 transition-colors">
-                  +91 8045 678 900
+                <a href="tel:+15551234567" className="text-gray-400 hover:text-rose-400 transition-colors">
+                  +1 (555) 123-4567
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={20} className="text-rose-400 flex-shrink-0" />
-                <a href="mailto:hello@eternalweddings.in" className="text-gray-400 hover:text-rose-400 transition-colors">
-                  hello@eternalweddings.in
+                <a href="mailto:hello@weddingplanner.com" className="text-gray-400 hover:text-rose-400 transition-colors">
+                  hello@weddingplanner.com
                 </a>
               </li>
             </ul>
